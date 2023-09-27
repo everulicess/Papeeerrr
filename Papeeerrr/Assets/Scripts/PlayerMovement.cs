@@ -4,76 +4,46 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")]
-    public float movementSpeed;
-    public float groundDrag;
+    [SerializeField] CharacterController controller;
 
-    [Header("Ground Check")]
+    [SerializeField] float speed = 12f;
+    [SerializeField] float gravity = 10f;
+    [SerializeField] float jumpHeight = 1f;
 
-    public float playerHeight;
-    [SerializeField]
-    LayerMask whatIsGround;
-    bool grounded;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float groundDistance = 0.4f;
+    [SerializeField] LayerMask groundMask;
 
-    [SerializeField] 
-    Transform orientation;
+    Vector3 velocity;
+    bool isGrounded;
 
-    float horizontalInput;
-    float verticalInput;
 
-    Vector3 moveDirection;
-
-    Rigidbody rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-    }
     private void Update()
     {
-        //ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        MyInput();
-        SpeedControl();
-
-        //handle drag
-        if (grounded)
+        if (isGrounded && velocity.y < 0)
         {
-            rb.drag = groundDrag;
+            velocity.y = -2f;
         }
-        else
+
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move * speed * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.drag = 0;
+            Debug.Log("is Jumping");
+            velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
         }
-    }
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-    private void MyInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        velocity.y -= gravity * Time.deltaTime;
 
-    }
-    private void MovePlayer()
-    {
-        //calculate movemetn direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        controller.Move(velocity * Time.deltaTime);
 
-        rb.AddForce(moveDirection.normalized * movementSpeed * 10f, ForceMode.Force);
-    }
-    private void SpeedControl()
-    {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        //limit velocity if needed
-        if (flatVel.magnitude > movementSpeed)
-        {
-            Vector3 limitedVel = flatVel.normalized * movementSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-        }
     }
 }
