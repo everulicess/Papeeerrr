@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
+    [SerializeField] GameManager gameManager;
 
     [SerializeField] float speed = 12f;
     [SerializeField] float gravity = 10f;

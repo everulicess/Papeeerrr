@@ -10,24 +10,25 @@ public class PoopingBar : MonoBehaviour
 
     public bool hasEnded = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (poopingSlider.value > poopingSlider.maxValue/2)
+        if (poopingSlider.value > poopingSlider.maxValue/4)
         {
-            poopIncrease = 0.1f;
+            poopIncrease = 0.02f;
+            Debug.Log("more than a quarter");
         }
-        if (poopingSlider.value == poopingSlider.maxValue)
+        if (poopingSlider.value < poopingSlider.maxValue)
+        {
+            poopingSlider.value += poopIncrease * Time.deltaTime;
+            
+        }
+        if (poopingSlider.value >= poopingSlider.maxValue)
         {
             hasEnded = true;
         }
-        poopingSlider.value += poopIncrease * Time.deltaTime;
-
+        
+        
     }
 }
