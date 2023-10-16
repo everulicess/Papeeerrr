@@ -11,8 +11,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        VisibleMouse(false);
+        
         poopingBar = Canvas.FindAnyObjectByType<PoopingBar>();
         collect = Canvas.FindAnyObjectByType<Collect>();
+
+
     }
     private void FixedUpdate()
     {
@@ -28,4 +32,22 @@ public class GameManager : MonoBehaviour
             return;
         }
     }
+
+    public void VisibleMouse(bool boolean)
+    {
+        if (!boolean)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+
+        }
+        
+
+    }
+    
 }

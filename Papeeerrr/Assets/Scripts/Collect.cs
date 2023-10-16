@@ -37,6 +37,12 @@ public class Collect : MonoBehaviour
             collectable = other.gameObject;
             interact_text.text = "[E]";
         }
+        //if (other.CompareTag("Mission"))
+        //{
+        //    isNear = true;
+        //    collectable = other.gameObject;
+        //    interact_text.text = "[E]";
+        //}
     }
     private void OnTriggerExit(Collider other)
     {
@@ -46,5 +52,11 @@ public class Collect : MonoBehaviour
             collectable = null;
             interact_text.text = "";
         }
+        //if (other.CompareTag("Mission"))
+        //{
+        //    isNear = false;
+        //    collectable = null;
+        //    interact_text.text = "";
+        //}
     }
 }
