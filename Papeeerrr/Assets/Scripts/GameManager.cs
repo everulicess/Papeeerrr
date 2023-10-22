@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         if (!boolean)
         {
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = true;
+            Cursor.visible = false;
         }
         else
         {

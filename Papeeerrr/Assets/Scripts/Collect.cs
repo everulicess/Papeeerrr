@@ -23,7 +23,7 @@ public class Collect : MonoBehaviour
         {
             Destroy(collectable);
             piecesOfPaper += 1;
-            piecesOfPaper_text.text = $"paper:{piecesOfPaper}";
+            piecesOfPaper_text.text = $"paper:{piecesOfPaper}/4";
             isNear = false;
             interact_text.text = "";
         }
