@@ -377,6 +377,7 @@
 "Assets/Scripts/Poopong Bar/States/HoldItInState.cs"
 "Assets/Scripts/Poopong Bar/States/NormalIncreaseState.cs"
 "Assets/Scripts/Poopong Bar/States/PoopBarStateMachine.cs"
+"Assets/Scripts/Poopong Bar/States/WaitState.cs"
 "Assets/Scripts/StateMachineBase/State.cs"
 "Assets/Scripts/StateMachineBase/StateController.cs"
 "Assets/Scripts/Winning/WinningScreen.cs"

@@ -21,15 +21,26 @@ public class GameManager : StateController<GameManager.GameState>
 
     //Introduction
     public GameObject movementControlsObject;
-    public GameObject introductionObject;
+
+    public GameObject introObject;
+    public GameObject introPart1;
+    public GameObject introPart2;
+    public GameObject introPart3;
+    public GameObject introPart4;
+    public GameObject introPart5;
+
     public GameObject barExplanationObject;
+    public GameObject barObject;
     public GameObject paperExplanationObject;
+    public GameObject paperObject;
+
+    //interaction
+    public bool spacePressed;
 
     public bool introductionDone;
     public bool movementControlsDone;
-    public bool movementControlsDoe;
+    public bool paperExplained;
     public bool barExplained;
-    public bool l;
     public enum GameState
     {
         Menu_State,
@@ -45,6 +56,8 @@ public class GameManager : StateController<GameManager.GameState>
 
     private void Awake()
     {
+        
+
         States[GameState.Menu_State] = new MenuState(this);
         States[GameState.Introduction_State] = new IntroductionState(this);
         States[GameState.Moving_State] = new MovingState(this);

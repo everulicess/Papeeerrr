@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     GameManager gM;
-
+    bool wPressed, aPressed, sPressed, dPressed = false;
     private void Awake()
     {
         gM = GameObject.FindObjectOfType<GameManager>();
@@ -45,6 +45,29 @@ public class PlayerMovement : MonoBehaviour
 
             controller.Move(move * speed * Time.deltaTime);
 
+            
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                wPressed = true;
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                aPressed = true;
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                sPressed = true;
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                dPressed = true;
+            }
+            if (aPressed&&sPressed&&dPressed&&wPressed)
+            {
+                gM.movementControlsDone = true;
+            }
+
+            
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 Debug.Log("is Jumping");
@@ -53,6 +76,10 @@ public class PlayerMovement : MonoBehaviour
             velocity.y -= gravity * Time.deltaTime;
 
             controller.Move(velocity * Time.deltaTime);
+        }
+        else
+        {
+            gM.spacePressed = Input.GetKeyDown(KeyCode.Space);
         }
         
 

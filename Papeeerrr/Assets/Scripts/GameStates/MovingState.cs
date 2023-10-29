@@ -27,7 +27,7 @@ public class MovingState : State<GameManager.GameState>
 
     public override void UpdateState()
     {
-
+        Debug.Log("MovingState");
     }
 
 

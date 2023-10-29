@@ -12,15 +12,18 @@ public class HoldItInState : State<PoopBarStateMachine.PoopBarState>
 
     public override void EnterState()
     {
+        bar.timesHoldItIn++;
+        
     }
 
     public override void ExitState()
     {
+        //bar.poopIncrease *= 1.5f;
     }
 
     public override PoopBarStateMachine.PoopBarState GetNextState()
     {
-        throw new System.NotImplementedException();
+        return PoopBarStateMachine.PoopBarState.NormalIncrease_State;
     }
 
     public override void UpdateState()
