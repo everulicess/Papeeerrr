@@ -12,22 +12,26 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Animator animator;
     private Queue<string> sentences;
 
-    GameManager gameManager;
+    GameManager gM;
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gM = FindObjectOfType<GameManager>();
         sentences = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+        gM.isPlayerControl = false;
+        gM.isPlayerCameraControl = false;
+        gM.VisibleMouse(true);
+
         animator.SetBool("isOpen", true);
 
 
         nameText.text = dialogue.name;
 
-        gameManager.VisibleMouse(true);
+        
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -60,8 +64,12 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
+        gM.isPlayerControl = true;
+        gM.isPlayerCameraControl = true;
+        gM.VisibleMouse(false);
+
         animator.SetBool("isOpen", false);
-        gameManager.VisibleMouse(false);
+       
         Debug.Log("DONE TALKING");
     }
 }
