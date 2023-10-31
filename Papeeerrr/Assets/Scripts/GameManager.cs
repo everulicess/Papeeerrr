@@ -16,8 +16,10 @@ public class GameManager : StateController<GameManager.GameState>
     public bool isTutorialFinished = false;
 
     //MiniGame variables
-    [SerializeField] GameObject minigameObject;
+    public GameObject minigameObject;
     public bool isMinigame;
+    public bool isGameWin;
+    public bool isGameLost;
 
     //Introduction
     public GameObject movementControlsObject;
@@ -69,7 +71,7 @@ public class GameManager : StateController<GameManager.GameState>
         VisibleMouse(false);
 
         poopingBar = Canvas.FindAnyObjectByType<PoopingBar>();
-        collect = Canvas.FindAnyObjectByType<Collect>();
+        collect = GameObject.FindAnyObjectByType<Collect>();
 
 
     }

@@ -15,9 +15,10 @@ public class NormalIncreaseState : State<PoopBarStateMachine.PoopBarState>
     public override void EnterState()
     {
         gM = GameObject.FindObjectOfType<GameManager>();
-        bar.poopIncrease = 1/120f;
 
-        Debug.Log($"increase value is {bar.poopIncrease}");
+            bar.poopIncrease = 1 / 45f;
+
+        Debug.Log($"increase POOP value is {bar.poopIncrease}");
     }
 
     public override void ExitState()
@@ -76,11 +77,15 @@ public class NormalIncreaseState : State<PoopBarStateMachine.PoopBarState>
     public override void UpdateState()
     {
         
+        if (bar.poopingSliser.value >= 5/120f)
+        {
+            gM.barExplained = true;
+        }
 
         bar.poopingSliser.value += bar.poopIncrease * Time.deltaTime;
         Debug.Log($"max value is {bar.poopingSliser.maxValue}");
         Debug.Log($"increase value is {bar.poopIncrease}");
-        Debug.Log($"normal value of the bar is {bar.poopingSliser.value}");
+        //Debug.Log($"normal value of the bar is {bar.poopingSliser.value}");
 
 
     }

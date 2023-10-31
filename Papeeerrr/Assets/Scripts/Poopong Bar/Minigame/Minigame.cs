@@ -34,20 +34,20 @@ public class Minigame : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TextMeshProUGUI clicksText;
 
-    [SerializeField] PoopingBar poopingBar;
+    PoopBarStateMachine bar;
 
     int clickAmount = 20;
     int currentClickAmount = 0;
-    GameManager gameManager;
+    GameManager gM;
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gM = FindObjectOfType<GameManager>();
         
-        poopingBar = FindObjectOfType<PoopingBar>();
+        bar = FindObjectOfType<PoopBarStateMachine>();
     }
     private void Update()
     {
-        gameManager.VisibleMouse(true);
+        gM.VisibleMouse(true);
         Hook();
         Poop();
         clicksText.text = $"Clicks: {currentClickAmount}/{clickAmount} ";
@@ -60,12 +60,12 @@ public class Minigame : MonoBehaviour
         }
         else if (currentClickAmount == clickAmount)
         {
-            poopingBar.OnMiniGameWon();
-            gameManager.VisibleMouse(false);
-            this.gameObject.SetActive(false);
+            //poopingBar.OnMiniGameWon();
+            gM.VisibleMouse(false);
+            bar.winMinigame = true;
+            //this.gameObject.SetActive(false);
             clickAmount += 10;
             currentClickAmount = 0;
-
         }
         
     }

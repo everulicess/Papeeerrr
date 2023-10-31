@@ -12,22 +12,33 @@ public class MinigameState : State<GameManager.GameState>
 
     public override void EnterState()
     {
-
+        gM.minigameObject.SetActive(true);
+        gM.isPlayerCameraControl = false;
+        gM.isPlayerControl = false;
     }
 
     public override void ExitState()
     {
-
+        gM.minigameObject.SetActive(false);
+        gM.isPlayerCameraControl = true;
+        gM.isPlayerControl = true;
     }
 
     public override GameManager.GameState GetNextState()
     {
-        return GameManager.GameState.Moving_State;
+        if (!gM.isMinigame)
+        {
+           
+            return GameManager.GameState.Moving_State;
+            
+            
+        }
+        return GameManager.GameState.Minigame_State;
     }
 
     public override void UpdateState()
     {
-
+        Debug.Log("mingame sTATEEEEEEEE");
     }
 
 

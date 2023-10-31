@@ -22,6 +22,18 @@ public class MovingState : State<GameManager.GameState>
 
     public override GameManager.GameState GetNextState()
     {
+        if (gM.isMinigame)
+        {
+            return GameManager.GameState.Minigame_State;
+        }
+        if (gM.isGameWin)
+        {
+            return GameManager.GameState.Win_State;
+        }
+        if (gM.isGameLost)
+        {
+            return GameManager.GameState.Lose_State;
+        }
         return GameManager.GameState.Moving_State;
     }
 

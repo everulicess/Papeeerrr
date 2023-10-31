@@ -11,6 +11,7 @@ public class PoopBarStateMachine : StateController<PoopBarStateMachine.PoopBarSt
     public float decreaseAmount;
 
     public bool winMinigame;
+    public bool loseMinigame;
     public int timesHoldItIn = 0;
     public enum PoopBarState
     {

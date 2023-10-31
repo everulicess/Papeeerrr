@@ -12,8 +12,10 @@ public class Collect : MonoBehaviour
     [SerializeField]TextMeshProUGUI piecesOfPaper_text;
     [SerializeField]TextMeshProUGUI interact_text;
 
+    GameManager gM;
     private void Awake()
     {
+        gM = GameObject.FindObjectOfType<GameManager>();
         interact_text.text = "";
         piecesOfPaper_text.text = "";
     }
@@ -21,6 +23,7 @@ public class Collect : MonoBehaviour
     {
         if (isNear && Input.GetKeyDown(KeyCode.E))
         {
+            gM.paperExplained = true;
             Destroy(collectable);
             piecesOfPaper += 1;
             piecesOfPaper_text.text = $"paper:{piecesOfPaper}/4";
