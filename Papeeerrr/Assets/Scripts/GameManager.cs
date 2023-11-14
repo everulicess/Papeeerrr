@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 
@@ -43,6 +44,14 @@ public class GameManager : StateController<GameManager.GameState>
     public bool movementControlsDone;
     public bool paperExplained;
     public bool barExplained;
+
+    //Poop Bar
+    public bool hasEnded;
+    //public Slider poopBar;
+    //public float normalIncrease = 1 / 360f;
+    //public float coffeeIncrease;
+    //public float runningIncrease;
+
     public enum GameState
     {
         Menu_State,
@@ -75,20 +84,20 @@ public class GameManager : StateController<GameManager.GameState>
 
 
     }
-    //private void FixedUpdate()
-    //{
-    //    if (poopingBar.hasEnded)
-    //    {
-    //        poopingBar.poopIncrease = 0f;
-    //        SceneManager.LoadScene("Losing Scene");
-    //        return;
-    //    }
-    //    if (collect.piecesOfPaper == 4)
-    //    {
-    //        SceneManager.LoadScene("Winning Scene");
-    //        return;
-    //    }
-    //}
+    private void FixedUpdate()
+    {
+        if (hasEnded)
+        {
+            //poopingBar.poopIncrease = 0f;
+            SceneManager.LoadScene("Losing Scene");
+            return;
+        }
+        if (collect.piecesOfPaper == 4)
+        {
+            SceneManager.LoadScene("Winning Scene");
+            return;
+        }
+    }
 
     public void VisibleMouse(bool boolean)
     {

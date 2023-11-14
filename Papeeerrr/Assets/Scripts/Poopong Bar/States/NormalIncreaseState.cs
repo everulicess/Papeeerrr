@@ -64,7 +64,7 @@ public class NormalIncreaseState : State<PoopBarStateMachine.PoopBarState>
             case 5:
                 if (bar.poopingSliser.value >= 1f)
                 {
-                    return PoopBarStateMachine.PoopBarState.HoldItIn_State;
+                    return PoopBarStateMachine.PoopBarState.Failed_State;
                 }
                 break;
             default:

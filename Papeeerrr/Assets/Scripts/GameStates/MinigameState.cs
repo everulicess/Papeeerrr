@@ -12,6 +12,7 @@ public class MinigameState : State<GameManager.GameState>
 
     public override void EnterState()
     {
+        
         gM.minigameObject.SetActive(true);
         gM.isPlayerCameraControl = false;
         gM.isPlayerControl = false;

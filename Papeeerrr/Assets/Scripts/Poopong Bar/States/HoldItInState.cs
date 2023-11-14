@@ -17,6 +17,8 @@ public class HoldItInState : State<PoopBarStateMachine.PoopBarState>
         gM = GameObject.FindObjectOfType<GameManager>();
         bar.timesHoldItIn++;
         gM.isMinigame = true;
+        bar.winMinigame = false;
+        bar.loseMinigame = false;
         bar.poopIncrease = 0f;
         
     }

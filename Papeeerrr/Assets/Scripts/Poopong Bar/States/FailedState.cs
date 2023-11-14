@@ -10,10 +10,10 @@ public class FailedState : State<PoopBarStateMachine.PoopBarState>
     {
         bar = _bar;
     }
-
+    GameManager gM;
     public override void EnterState()
     {
-        throw new System.NotImplementedException();
+        gM = GameObject.FindObjectOfType<GameManager>();
     }
 
     public override void ExitState()
@@ -23,12 +23,12 @@ public class FailedState : State<PoopBarStateMachine.PoopBarState>
 
     public override PoopBarStateMachine.PoopBarState GetNextState()
     {
-        throw new System.NotImplementedException();
+        return PoopBarStateMachine.PoopBarState.Failed_State;
     }
 
     public override void UpdateState()
     {
-       
-        throw new System.NotImplementedException();
+
+        gM.hasEnded = true;
     }
 }
