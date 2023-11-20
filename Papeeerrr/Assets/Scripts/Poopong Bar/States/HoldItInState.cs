@@ -34,7 +34,7 @@ public class HoldItInState : State<PoopBarStateMachine.PoopBarState>
     {
         if (bar.winMinigame)
         {
-            bar.poopingSliser.value -= 2 / 12f;
+            bar.poopingSliser.value -= 40/ 120f;
             return PoopBarStateMachine.PoopBarState.NormalIncrease_State;
 
         }

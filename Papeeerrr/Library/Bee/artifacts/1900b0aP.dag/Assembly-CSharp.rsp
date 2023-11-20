@@ -322,6 +322,13 @@
 "Assets/Scripts/GameStates/MovingState.cs"
 "Assets/Scripts/GameStates/WinState.cs"
 "Assets/Scripts/MenuScene/MenuHandler.cs"
+"Assets/Scripts/Missions/BallsChecker.cs"
+"Assets/Scripts/Missions/bookChecker.cs"
+"Assets/Scripts/Missions/FoodChecker.cs"
+"Assets/Scripts/Missions/LibraryChecker.cs"
+"Assets/Scripts/Missions/Mission_1.cs"
+"Assets/Scripts/Missions/Mission_2.cs"
+"Assets/Scripts/Missions/Mission_3.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/Poopong Bar/Minigame/Minigame.cs"
 "Assets/Scripts/Poopong Bar/PoopingBar.cs"
@@ -330,6 +337,10 @@
 "Assets/Scripts/Poopong Bar/States/NormalIncreaseState.cs"
 "Assets/Scripts/Poopong Bar/States/PoopBarStateMachine.cs"
 "Assets/Scripts/Poopong Bar/States/WaitState.cs"
+"Assets/Scripts/puzzles/Puzzle 1/DragDrop.cs"
+"Assets/Scripts/puzzles/Puzzle 2.cs"
+"Assets/Scripts/puzzles/Puzzle 3.cs"
+"Assets/Scripts/puzzles/Puzzle_1_Trigger.cs"
 "Assets/Scripts/StateMachineBase/State.cs"
 "Assets/Scripts/StateMachineBase/StateController.cs"
 "Assets/Scripts/Winning/WinningScreen.cs"
@@ -367,6 +378,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+"Assets/zTesting/testMinigame.cs"
 -langversion:9.0
 
 /deterministic

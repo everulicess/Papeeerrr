@@ -1,16 +1,28 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BallsChecker
     - Collect
     - DialogueManager
     - DialogueTrigger
+    - DragDrop
+    - FoodChecker
     - GameManager
+    - LibraryChecker
     - MenuHandler
     - Minigame
+    - Mission_1
+    - Mission_2
+    - Mission_3
     - MouseLook
     - PlayerMovement
     - PoopBarStateMachine
+    - Puzzle2
+    - Puzzle3
+    - Puzzle_1_Trigger
     - WinningScreen
+    - bookChecker
+    - testMinigame
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -21,15 +33,19 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -37,12 +53,15 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Slider
   serializedClasses:
     Assembly-CSharp:
@@ -57,6 +76,11 @@ ScriptsOnlyBuild:
     - TMPro.TMP_GlyphAdjustmentRecord
     - TMPro.TMP_GlyphPairAdjustmentRecord
     - TMPro.TMP_GlyphValueRecord
+    - TMPro.TMP_InputField/OnChangeEvent
+    - TMPro.TMP_InputField/SelectionEvent
+    - TMPro.TMP_InputField/SubmitEvent
+    - TMPro.TMP_InputField/TextSelectionEvent
+    - TMPro.TMP_InputField/TouchScreenKeyboardEvent
     - TMPro.TMP_Sprite
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
@@ -72,6 +96,8 @@ ScriptsOnlyBuild:
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
+    - UnityEngine.EventSystems.EventTrigger/Entry
+    - UnityEngine.EventSystems.EventTrigger/TriggerEvent
     - UnityEngine.UI.AnimationTriggers
     - UnityEngine.UI.Button/ButtonClickedEvent
     - UnityEngine.UI.ColorBlock
@@ -82,13 +108,64 @@ ScriptsOnlyBuild:
   methodsToPreserve:
   - assembly: Assembly-CSharp
     fullTypeName: MenuHandler
+    methodName: OnQuitGameClicked
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuHandler
     methodName: OnStartGameClicked
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuHandler
+    methodName: OnQuitGameClicked
+  - assembly: Assembly-CSharp
+    fullTypeName: Puzzle3
+    methodName: SolvePuzzle
+  - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DragObject
+  - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DropObject
+  - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DragObject
+  - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DropObject
+  - assembly: Assembly-CSharp
+    fullTypeName: Puzzle2
+    methodName: CheckAnswer
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuHandler
+    methodName: OnMenuClicked
   - assembly: Assembly-CSharp
     fullTypeName: Minigame
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DragObject
+  - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DropObject
+  - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DragObject
+  - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DropObject
+  - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DragObject
+  - assembly: Assembly-CSharp
+    fullTypeName: DragDrop
+    methodName: DropObject
+  - assembly: Assembly-CSharp
     fullTypeName: DialogueManager
     methodName: DisplayNextSentence
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuHandler
+    methodName: OnCloseClicked
+  - assembly: Assembly-CSharp
+    fullTypeName: WinningScreen
+    methodName: OnMenuClicked
   - assembly: Assembly-CSharp
     fullTypeName: WinningScreen
     methodName: OnMenuClicked
@@ -117,17 +194,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16638}
     - Class: 114
-      Script: {instanceID: 17642}
+      Script: {instanceID: 16768}
     - Class: 114
-      Script: {instanceID: 17844}
+      Script: {instanceID: 17658}
     - Class: 114
-      Script: {instanceID: 20076}
+      Script: {instanceID: 17860}
     - Class: 114
-      Script: {instanceID: 20624}
+      Script: {instanceID: 18146}
     - Class: 114
-      Script: {instanceID: 20774}
+      Script: {instanceID: 20116}
     - Class: 114
-      Script: {instanceID: 21086}
+      Script: {instanceID: 20670}
+    - Class: 114
+      Script: {instanceID: 20824}
+    - Class: 114
+      Script: {instanceID: 21146}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -170,29 +251,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16638}
     - Class: 114
-      Script: {instanceID: 17230}
+      Script: {instanceID: 17234}
     - Class: 114
-      Script: {instanceID: 17642}
+      Script: {instanceID: 17658}
     - Class: 114
-      Script: {instanceID: 17844}
+      Script: {instanceID: 17860}
     - Class: 114
-      Script: {instanceID: 18128}
+      Script: {instanceID: 18146}
     - Class: 114
-      Script: {instanceID: 19004}
+      Script: {instanceID: 19028}
     - Class: 114
-      Script: {instanceID: 19118}
+      Script: {instanceID: 19142}
     - Class: 114
-      Script: {instanceID: 19368}
+      Script: {instanceID: 19394}
     - Class: 114
-      Script: {instanceID: 20076}
+      Script: {instanceID: 20116}
     - Class: 114
-      Script: {instanceID: 20624}
+      Script: {instanceID: 20670}
     - Class: 114
-      Script: {instanceID: 20774}
+      Script: {instanceID: 20824}
     - Class: 114
-      Script: {instanceID: 21086}
+      Script: {instanceID: 21146}
     - Class: 114
-      Script: {instanceID: 22868}
+      Script: {instanceID: 22948}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -257,37 +338,73 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16696}
     - Class: 114
+      Script: {instanceID: 16764}
+    - Class: 114
       Script: {instanceID: 16832}
     - Class: 114
       Script: {instanceID: 16944}
     - Class: 114
-      Script: {instanceID: 17356}
+      Script: {instanceID: 17366}
     - Class: 114
-      Script: {instanceID: 17642}
+      Script: {instanceID: 17410}
     - Class: 114
-      Script: {instanceID: 17844}
+      Script: {instanceID: 17658}
     - Class: 114
-      Script: {instanceID: 18128}
+      Script: {instanceID: 17860}
     - Class: 114
-      Script: {instanceID: 19114}
+      Script: {instanceID: 18146}
     - Class: 114
-      Script: {instanceID: 19832}
+      Script: {instanceID: 18576}
     - Class: 114
-      Script: {instanceID: 20002}
+      Script: {instanceID: 19124}
     - Class: 114
-      Script: {instanceID: 20076}
+      Script: {instanceID: 19138}
     - Class: 114
-      Script: {instanceID: 20274}
+      Script: {instanceID: 19628}
     - Class: 114
-      Script: {instanceID: 20624}
+      Script: {instanceID: 19870}
     - Class: 114
-      Script: {instanceID: 20774}
+      Script: {instanceID: 19930}
     - Class: 114
-      Script: {instanceID: 21086}
+      Script: {instanceID: 20042}
     - Class: 114
-      Script: {instanceID: 21298}
+      Script: {instanceID: 20116}
     - Class: 114
-      Script: {instanceID: 22708}
+      Script: {instanceID: 20316}
+    - Class: 114
+      Script: {instanceID: 20518}
+    - Class: 114
+      Script: {instanceID: 20670}
+    - Class: 114
+      Script: {instanceID: 20824}
+    - Class: 114
+      Script: {instanceID: 20836}
+    - Class: 114
+      Script: {instanceID: 21146}
+    - Class: 114
+      Script: {instanceID: 21360}
+    - Class: 114
+      Script: {instanceID: 21856}
+    - Class: 114
+      Script: {instanceID: 22784}
+    - Class: 114
+      Script: {instanceID: 22948}
+    - Class: 114
+      Script: {instanceID: 218648}
+    - Class: 114
+      Script: {instanceID: 218658}
+    - Class: 114
+      Script: {instanceID: 235010}
+    - Class: 114
+      Script: {instanceID: 459016}
+    - Class: 114
+      Script: {instanceID: 505268}
+    - Class: 114
+      Script: {instanceID: 665460}
+    - Class: 114
+      Script: {instanceID: 666940}
+    - Class: 114
+      Script: {instanceID: 804694}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -301,6 +418,8 @@ ScriptsOnlyBuild:
     - Class: 143
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 193
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -338,19 +457,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16768}
     - Class: 114
-      Script: {instanceID: 17642}
+      Script: {instanceID: 17658}
     - Class: 114
-      Script: {instanceID: 17844}
+      Script: {instanceID: 17860}
     - Class: 114
-      Script: {instanceID: 18128}
+      Script: {instanceID: 18146}
     - Class: 114
-      Script: {instanceID: 20076}
+      Script: {instanceID: 20116}
     - Class: 114
-      Script: {instanceID: 20624}
+      Script: {instanceID: 20670}
     - Class: 114
-      Script: {instanceID: 20774}
+      Script: {instanceID: 20824}
     - Class: 114
-      Script: {instanceID: 21086}
+      Script: {instanceID: 21146}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -388,7 +507,7 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: dda7e7da9549f8098c97f2324899ea7a
+      Hash: 3d0f0a9c0ba79ef6d70fd979877f0df7
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Collect
@@ -430,7 +549,7 @@ ScriptsOnlyBuild:
     className: SkewTextExample
   - hash:
       serializedVersion: 2
-      Hash: d612a58ec48fec0b2aabecd94cae7874
+      Hash: d2f7f686a4ed259cad2ef1e12b590e4e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: DialogueManager
@@ -506,6 +625,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 54fb9f6fe89d930ad0f2bffc69dc0ab2
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Puzzle_1_Trigger
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -832,7 +957,7 @@ ScriptsOnlyBuild:
     className: Rotate
   - hash:
       serializedVersion: 2
-      Hash: 16b5755c138eede73b15a0048af0e66a
+      Hash: 4262806dced4432375e52ea5e56488d9
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: DialogueTrigger
@@ -910,6 +1035,12 @@ ScriptsOnlyBuild:
     className: UnityOnPointerClickMessageListener
   - hash:
       serializedVersion: 2
+      Hash: fc8e251788c98a446d38b615e90748b7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DragDrop
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -952,7 +1083,7 @@ ScriptsOnlyBuild:
     className: UnityOnEndDragMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 4636beb3b89b8cf7f8266c5c1bc9cbba
+      Hash: 588765269e01f76e86e1701b6b9c033c
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameManager
@@ -1096,6 +1227,12 @@ ScriptsOnlyBuild:
     className: StateGraphAsset
   - hash:
       serializedVersion: 2
+      Hash: cfd5c03e6075ea01985fcf20c31a0d9e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Puzzle3
+  - hash:
+      serializedVersion: 2
       Hash: d2938fd574d28d48888d4f06beab689c
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -1130,6 +1267,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: a5ca474f3c5ccebf2d2efe359c40a7f0
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Puzzle2
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -1472,10 +1615,58 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: MenuHandler
+  - hash:
+      serializedVersion: 2
+      Hash: b19386cbf6f7047c3227d6facc687f73
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Mission_1
+  - hash:
+      serializedVersion: 2
+      Hash: 2c0884c8f79a04d94643223d2134ecfb
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Mission_2
+  - hash:
+      serializedVersion: 2
+      Hash: fa681332e6e96cc1121c3400e6c99dce
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: bookChecker
+  - hash:
+      serializedVersion: 2
+      Hash: 71d5a341776d1d15c470e59d5f1cd03b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: FoodChecker
+  - hash:
+      serializedVersion: 2
+      Hash: c231fe67331e14a309e8626b5ffdc039
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: BallsChecker
+  - hash:
+      serializedVersion: 2
+      Hash: 5838cd03e91a9b56f4cd72f318a58056
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Mission_3
+  - hash:
+      serializedVersion: 2
+      Hash: 9acfcc7bc937bd4e294d007f20033c2a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: LibraryChecker
+  - hash:
+      serializedVersion: 2
+      Hash: 2d6f93df180c2c22ff775faf16221e08
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: testMinigame
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu Scene.unity
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/Losing Scene.unity
   - Assets/Scenes/Winning Scene.unity
-  playerPath: C:/Users/ulice/OneDrive/Escritorio/GameDesignFT/Papeeerrr.exe
+  playerPath: C:/Users/ulice/OneDrive/Escritorio/GameDesignFT/Build/Papeeerrr.exe

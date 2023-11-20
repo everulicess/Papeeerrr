@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CharacterController controller;
     [SerializeField] GameManager gameManager;
 
-    [SerializeField] float speed = 12f;
+    [SerializeField] float speed = 3f;
     [SerializeField] float gravity = 10f;
     [SerializeField] float jumpHeight = 1f;
 
@@ -30,6 +30,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gM.isPlayerControl)
         {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = 4.5f;
+                gM.isRunning = true;
+            }
+            else
+            {
+                speed = 3f;
+                gM.isRunning = false;
+            }
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
             if (isGrounded && velocity.y < 0)

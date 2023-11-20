@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Collectable
   - Toilet
+  - Mission
+  - Boost
+  - Mission 2 Food
+  - Mission 2 Balls
+  - Mission 3
   layers:
   - Default
   - TransparentFX

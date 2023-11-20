@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Animator animator;
     private Queue<string> sentences;
 
+    public bool isDialogue = true;
     GameManager gM;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        isDialogue = true;
+        dialogueText.text = "";
         gM.isPlayerControl = false;
         gM.isPlayerCameraControl = false;
         gM.VisibleMouse(true);
@@ -64,6 +67,7 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
+        isDialogue = false;
         gM.isPlayerControl = true;
         gM.isPlayerCameraControl = true;
         gM.VisibleMouse(false);

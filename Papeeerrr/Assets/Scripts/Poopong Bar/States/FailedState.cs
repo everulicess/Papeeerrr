@@ -13,12 +13,14 @@ public class FailedState : State<PoopBarStateMachine.PoopBarState>
     GameManager gM;
     public override void EnterState()
     {
+        Debug.Log("FAILED STATE");
         gM = GameObject.FindObjectOfType<GameManager>();
+        bar.poopIncrease = 1 / 120f;
     }
 
     public override void ExitState()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override PoopBarStateMachine.PoopBarState GetNextState()
@@ -28,7 +30,19 @@ public class FailedState : State<PoopBarStateMachine.PoopBarState>
 
     public override void UpdateState()
     {
-
-        gM.hasEnded = true;
+        if (gM.isRunning)
+        {
+            bar.poopIncrease = 3 / 120f;
+        }
+        else
+        {
+            bar.poopIncrease = 1 / 120f;
+        }
+        bar.poopingSliser.value += bar.poopIncrease * Time.deltaTime;
+        if (bar.poopingSliser.value>=1f)
+        {
+            gM.hasEnded = true;
+        }
+        
     }
 }

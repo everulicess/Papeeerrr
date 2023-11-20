@@ -21,6 +21,7 @@ public class MinigameState : State<GameManager.GameState>
     public override void ExitState()
     {
         gM.minigameObject.SetActive(false);
+        gM.VisibleMouse(false);
         gM.isPlayerCameraControl = true;
         gM.isPlayerControl = true;
     }
